@@ -21,6 +21,7 @@ public class EquipManager : MonoBehaviour
     float speed = 1f;
     bool isNightVisionOn = false;
     public GameObject NightVision;
+    public Sword swordScript;
 
 
 
@@ -31,6 +32,7 @@ public class EquipManager : MonoBehaviour
         GunRenderer.enabled = false;
         SwordRenderer.enabled = false;
         transform.rotation = from.rotation;
+        swordScript.enabled = false;
 
     }
 
@@ -148,6 +150,7 @@ public class EquipManager : MonoBehaviour
         hideGun();
         swordState = 0;
         SwordRenderer.enabled = true;
+        swordScript.enabled = true;
     }
 
 
@@ -156,6 +159,7 @@ public class EquipManager : MonoBehaviour
         swordState = 1;
         SwordRenderer.enabled = false;
         transform.rotation = from.rotation;
+        swordScript.enabled = false;
     }
 
 
