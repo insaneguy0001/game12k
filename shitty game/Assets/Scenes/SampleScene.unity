@@ -683,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunScript: {fileID: 164301222}
   GunShootingScript: {fileID: 164301220}
-  GunRenderer: {fileID: 1159480803}
+  GunObject: {fileID: 1727849994}
   SwordRenderer: {fileID: 1378537656}
   RedDot: {fileID: 912126779}
   flashLight: {fileID: 1334737803}
@@ -2415,7 +2415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0b6e60f5ae1140d43a2b127202259788, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b6e60f5ae1140d43a2b127202259788, type: 3}
       propertyPath: m_Name
@@ -4243,11 +4243,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b6e60f5ae1140d43a2b127202259788, type: 3}
   m_PrefabInstance: {fileID: 560544015}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1159480803 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 0b6e60f5ae1140d43a2b127202259788, type: 3}
-  m_PrefabInstance: {fileID: 560544015}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1171792529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5919,6 +5914,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606459258}
   m_CullTransparentMesh: 1
+--- !u!1 &1727849994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b6e60f5ae1140d43a2b127202259788, type: 3}
+  m_PrefabInstance: {fileID: 560544015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749262128
 GameObject:
   m_ObjectHideFlags: 0

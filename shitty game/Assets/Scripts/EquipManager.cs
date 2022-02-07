@@ -8,7 +8,7 @@ public class EquipManager : MonoBehaviour
     [Header("Pistol")]
     public Gun gunScript;
     public GunShoot GunShootingScript;
-    public Renderer GunRenderer;
+    public GameObject GunObject;
     public Renderer SwordRenderer;
     int gunState = 1;
     int swordState = 1;
@@ -29,7 +29,7 @@ public class EquipManager : MonoBehaviour
     {
         gunScript.enabled = false;
         GunShootingScript.enabled = false;
-        GunRenderer.enabled = false;
+        GunObject.SetActive(false);
         SwordRenderer.enabled = false;
         transform.rotation = from.rotation;
         swordScript.enabled = false;
@@ -83,7 +83,7 @@ public class EquipManager : MonoBehaviour
         hideSword();
         gunScript.enabled = true;
         GunShootingScript.enabled = true;
-        GunRenderer.enabled = true;
+        GunObject.SetActive(true);
         gunState = 0;
         
 
@@ -115,7 +115,7 @@ public class EquipManager : MonoBehaviour
         transform.rotation = from.rotation;
         gunScript.enabled = false;
         GunShootingScript.enabled = false;
-        GunRenderer.enabled = false;
+        GunObject.SetActive(false);
 
         gunState = 1;
         SavedDot = RedDot.intensity;
