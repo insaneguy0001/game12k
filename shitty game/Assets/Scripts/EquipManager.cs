@@ -9,20 +9,19 @@ public class EquipManager : MonoBehaviour
     public Gun gunScript;
     public GunShoot GunShootingScript;
     public GameObject GunObject;
-    public Renderer SwordRenderer;
+    public GameObject SwordRenderer;
     int gunState = 1;
     int swordState = 1;
-    float SavedFlashlight;
-    float SavedDot;
-    public Light RedDot;
-    public Light flashLight;
+    int rife1state = 1;
+    int shotgun1state = 1;
     public Transform from;
     public Transform to;
     float speed = 1f;
     bool isNightVisionOn = false;
     public GameObject NightVision;
     public Sword swordScript;
-
+    public GameObject rife1;
+    public GameObject shotgun1;
 
 
     void Start()
@@ -30,10 +29,11 @@ public class EquipManager : MonoBehaviour
         gunScript.enabled = false;
         GunShootingScript.enabled = false;
         GunObject.SetActive(false);
-        SwordRenderer.enabled = false;
+        SwordRenderer.SetActive(false);
         transform.rotation = from.rotation;
         swordScript.enabled = false;
-
+        rife1.SetActive(false);
+        shotgun1.SetActive(false);
     }
 
     void Update()
@@ -55,6 +55,12 @@ public class EquipManager : MonoBehaviour
                 NightVision.SetActive(true);
                 isNightVisionOn = true;
             }
+        } else if (Input.GetKeyDown("3"))
+        {
+            equipRife1();
+        } else if (Input.GetKeyDown("4"))
+        {
+            equipShotgun();
         }
 
     }
@@ -81,33 +87,15 @@ public class EquipManager : MonoBehaviour
     {
         rotate();
         hideSword();
+        HideRife();
+        HideShotgun();
         gunScript.enabled = true;
         GunShootingScript.enabled = true;
         GunObject.SetActive(true);
         gunState = 0;
         
 
-        if (SavedDot == 100)
-        {
-            RedDot.intensity = 100;
-            gunScript.SetIsRedDotOn(true);
-        }
-        else if (SavedDot == 0)
-        {
-            RedDot.intensity = SavedDot;
-            gunScript.SetIsRedDotOn(false);
-        }
-
-        if (SavedFlashlight == 1)
-        {
-            flashLight.intensity = SavedFlashlight;
-            gunScript.SetIsLightOn(true);
-        }
-        else if (SavedFlashlight == 0)
-        {
-            flashLight.intensity = SavedFlashlight;
-            gunScript.SetIsLightOn(false);
-        }
+        
     }
 
     void hideGun()
@@ -118,12 +106,7 @@ public class EquipManager : MonoBehaviour
         GunObject.SetActive(false);
 
         gunState = 1;
-        SavedDot = RedDot.intensity;
-        SavedFlashlight = flashLight.intensity;
-        flashLight.intensity = 0;
-        RedDot.intensity = 0;
-        gunScript.SetIsLightOn(false);
-        gunScript.SetIsRedDotOn(false);
+        
     }
 
 
@@ -148,8 +131,10 @@ public class EquipManager : MonoBehaviour
     {
         rotate();
         hideGun();
+        HideShotgun();
+        HideRife();
         swordState = 0;
-        SwordRenderer.enabled = true;
+        SwordRenderer.SetActive(true);
         swordScript.enabled = true;
     }
 
@@ -157,10 +142,74 @@ public class EquipManager : MonoBehaviour
     void hideSword()
     {
         swordState = 1;
-        SwordRenderer.enabled = false;
+        SwordRenderer.SetActive(false);
         transform.rotation = from.rotation;
         swordScript.enabled = false;
     }
+
+
+
+    void equipRife1()
+    {
+        if(rife1state == 1)
+        {
+            ShowRife();
+        }else if(rife1state == 0)
+        {
+            HideRife();
+        }
+    }
+
+
+    void ShowRife()
+    {
+        rotate();
+        hideGun();
+        hideSword();
+        HideShotgun();
+        rife1state = 0;
+        rife1.SetActive(true);
+    }
+
+    void HideRife()
+    {
+        rife1.SetActive(false);
+        rife1state = 1;
+    }
+
+
+    void equipShotgun()
+    {
+        if(shotgun1state == 1)
+        {
+            showShotgun();
+        } else if(shotgun1state == 0)
+        {
+            HideShotgun();
+        }
+    }
+
+
+
+    void showShotgun()
+    {
+        rotate();
+        hideGun();
+        hideSword();
+        HideRife();
+        shotgun1state = 0;
+        shotgun1.SetActive(true);
+    }
+
+    void HideShotgun()
+    {
+        shotgun1state = 1;
+        shotgun1.SetActive(false);
+    }
+
+
+
+
 
 
     void rotate()
