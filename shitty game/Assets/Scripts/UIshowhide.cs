@@ -5,17 +5,20 @@ using UnityEngine;
 public class UIshowhide : MonoBehaviour
 {
 
-    public GameObject UI;
+    public GameObject crosshair;
+    public GameObject healthbar;
 
     void Update()
     {
         if (Input.GetKey(KeyCode.L))
         {
-            UI.SetActive(false);
+            healthbar.SetActive(false);
+            crosshair.SetActive(false);
         }
         else
         {
-            UI.SetActive(true);
+            healthbar.SetActive(true);
+            crosshair.SetActive(true);
         }
     }
 }
