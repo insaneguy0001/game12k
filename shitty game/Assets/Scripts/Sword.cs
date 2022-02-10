@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     Animator anim;
-
+    public bool canattack;
 
     void Start()
     {
@@ -17,8 +17,11 @@ public class Sword : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (canattack)
+            {
+                anim.SetTrigger("Attack");
+            }
             
-            anim.SetTrigger("Attack");
             
         }
     }

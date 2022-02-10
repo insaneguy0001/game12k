@@ -8,8 +8,8 @@ public class EquipManager : MonoBehaviour
     [Header("Pistol")]
     
     public GunShoot GunShootingScript;
-    public GameObject GunObject;
-    public GameObject SwordRenderer;
+    public Renderer GunObject;
+    public Renderer SwordRenderer;
     int gunState = 1;
     int swordState = 1;
     int rife1state = 1;
@@ -20,20 +20,28 @@ public class EquipManager : MonoBehaviour
     bool isNightVisionOn = false;
     public GameObject NightVision;
     public Sword swordScript;
-    public GameObject rife1;
-    public GameObject shotgun1;
+    public Renderer rife1;
+    public Renderer shotgun1;
+    Quaternion startRot;
+    Vector3 startPos;
+
+    void Awake()
+    {
+        startRot = rife1.transform.rotation;
+        startPos = rife1.transform.position;
+    }
 
 
     void Start()
     {
         
         GunShootingScript.enabled = false;
-        GunObject.SetActive(false);
-        SwordRenderer.SetActive(false);
+        GunObject.enabled = false;
+        SwordRenderer.enabled = false;
         transform.rotation = from.rotation;
         swordScript.enabled = false;
-        rife1.SetActive(false);
-        shotgun1.SetActive(false);
+        rife1.enabled = false;
+        shotgun1.enabled = false;
     }
 
     void Update()
@@ -91,7 +99,7 @@ public class EquipManager : MonoBehaviour
         HideShotgun();
         
         GunShootingScript.enabled = true;
-        GunObject.SetActive(true);
+        GunObject.enabled = true;
         gunState = 0;
         
 
@@ -103,7 +111,7 @@ public class EquipManager : MonoBehaviour
         transform.rotation = from.rotation;
         
         GunShootingScript.enabled = false;
-        GunObject.SetActive(false);
+        GunObject.enabled = false;
 
         gunState = 1;
         
@@ -134,7 +142,7 @@ public class EquipManager : MonoBehaviour
         HideShotgun();
         HideRife();
         swordState = 0;
-        SwordRenderer.SetActive(true);
+        SwordRenderer.enabled = true;
         swordScript.enabled = true;
     }
 
@@ -142,7 +150,7 @@ public class EquipManager : MonoBehaviour
     void hideSword()
     {
         swordState = 1;
-        SwordRenderer.SetActive(false);
+        SwordRenderer.enabled = false;
         transform.rotation = from.rotation;
         swordScript.enabled = false;
     }
@@ -168,12 +176,14 @@ public class EquipManager : MonoBehaviour
         hideSword();
         HideShotgun();
         rife1state = 0;
-        rife1.SetActive(true);
+        rife1.enabled = true;
+
+
     }
 
     void HideRife()
     {
-        rife1.SetActive(false);
+        rife1.enabled = false;
         rife1state = 1;
     }
 
@@ -198,13 +208,13 @@ public class EquipManager : MonoBehaviour
         hideSword();
         HideRife();
         shotgun1state = 0;
-        shotgun1.SetActive(true);
+        shotgun1.enabled = true;
     }
 
     void HideShotgun()
     {
         shotgun1state = 1;
-        shotgun1.SetActive(false);
+        shotgun1.enabled = false;
     }
 
 

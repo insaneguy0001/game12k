@@ -12,7 +12,7 @@ public class RifeShoot : MonoBehaviour
     public float recoli = -30f;
     float FireRate = 10f;
     float TimeToNextFire = 0f;
-    Animator animator;
+    public Animator animator;
 
 
 
