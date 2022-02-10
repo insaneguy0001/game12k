@@ -10,9 +10,16 @@ public class RifeShoot : MonoBehaviour
     public float range = 100f;
     public Camera cam;
     public float recoli = -30f;
-    float FireRate = 3f;
+    float FireRate = 10f;
     float TimeToNextFire = 0f;
+    Animator animator;
 
+
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
 
     void Update()
@@ -39,6 +46,7 @@ public class RifeShoot : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+            animator.SetTrigger("Shoot");
         }
 
         
