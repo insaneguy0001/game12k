@@ -6,7 +6,7 @@ public class EquipManager : MonoBehaviour
 {
     
     [Header("Pistol")]
-    public Gun gunScript;
+    
     public GunShoot GunShootingScript;
     public GameObject GunObject;
     public GameObject SwordRenderer;
@@ -26,7 +26,7 @@ public class EquipManager : MonoBehaviour
 
     void Start()
     {
-        gunScript.enabled = false;
+        
         GunShootingScript.enabled = false;
         GunObject.SetActive(false);
         SwordRenderer.SetActive(false);
@@ -89,7 +89,7 @@ public class EquipManager : MonoBehaviour
         hideSword();
         HideRife();
         HideShotgun();
-        gunScript.enabled = true;
+        
         GunShootingScript.enabled = true;
         GunObject.SetActive(true);
         gunState = 0;
@@ -101,7 +101,7 @@ public class EquipManager : MonoBehaviour
     void hideGun()
     {
         transform.rotation = from.rotation;
-        gunScript.enabled = false;
+        
         GunShootingScript.enabled = false;
         GunObject.SetActive(false);
 
