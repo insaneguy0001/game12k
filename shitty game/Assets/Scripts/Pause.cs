@@ -13,6 +13,7 @@ public class Pause : MonoBehaviour
     public Sword swordScript;
     public RifeShoot rifeScript;
     public AudioSource FootSteps;
+    public bool AreSettingsOn = false;
     Cam cam;
 
 
@@ -43,18 +44,21 @@ public class Pause : MonoBehaviour
     
     public void resume()
     {
+        if (!AreSettingsOn)
+        {
+            PauseUI.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+            isPauseOpen = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            cam.paused = false;
+            ShootingScript.canShoot = true;
+            FootSteps.enabled = true;
+            movementScript.paused = false;
+            rifeScript.canshoot = true;
+            swordScript.canattack = true;
+        }
         
-        PauseUI.gameObject.SetActive(false);
-        Time.timeScale = 1f;
-        isPauseOpen = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        cam.paused = false;
-        ShootingScript.canShoot = true;
-        FootSteps.enabled = true;
-        movementScript.paused = false;
-        rifeScript.canshoot = true;
-        swordScript.canattack = true;
 
     }
 
