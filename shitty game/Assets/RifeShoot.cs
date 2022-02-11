@@ -19,6 +19,7 @@ public class RifeShoot : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        
     }
 
 
