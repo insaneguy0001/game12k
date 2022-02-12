@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EquipManager : MonoBehaviour
 {
-    
+
     [Header("Pistol")]
-    
+
     public GunShoot GunShootingScript;
     public Renderer GunObject;
     public Renderer SwordRenderer;
@@ -34,7 +34,7 @@ public class EquipManager : MonoBehaviour
 
     void Start()
     {
-        
+
         GunShootingScript.enabled = false;
         GunObject.enabled = false;
         SwordRenderer.enabled = false;
@@ -49,24 +49,29 @@ public class EquipManager : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             equipPistol();
-        } else if (Input.GetKeyDown("2"))
+        }
+        else if (Input.GetKeyDown("2"))
         {
             equipSword();
-        } else if (Input.GetKeyDown("n"))
+        }
+        else if (Input.GetKeyDown("n"))
         {
             if (isNightVisionOn)
             {
                 NightVision.SetActive(false);
                 isNightVisionOn = false;
-            } else if (!isNightVisionOn)
+            }
+            else if (!isNightVisionOn)
             {
                 NightVision.SetActive(true);
                 isNightVisionOn = true;
             }
-        } else if (Input.GetKeyDown("3"))
+        }
+        else if (Input.GetKeyDown("3"))
         {
             equipRife1();
-        } else if (Input.GetKeyDown("4"))
+        }
+        else if (Input.GetKeyDown("4"))
         {
             equipShotgun();
         }
@@ -83,7 +88,8 @@ public class EquipManager : MonoBehaviour
             showPistol();
 
 
-        } else if (gunState == 0)
+        }
+        else if (gunState == 0)
         {
 
             hideGun();
@@ -97,24 +103,24 @@ public class EquipManager : MonoBehaviour
         hideSword();
         HideRife();
         HideShotgun();
-        
+
         GunShootingScript.enabled = true;
         GunObject.enabled = true;
         gunState = 0;
-        
 
-        
+
+
     }
 
     void hideGun()
     {
         transform.rotation = from.rotation;
-        
+
         GunShootingScript.enabled = false;
         GunObject.enabled = false;
 
         gunState = 1;
-        
+
     }
 
 
@@ -122,7 +128,7 @@ public class EquipManager : MonoBehaviour
 
     void equipSword()
     {
-        if(swordState == 1)
+        if (swordState == 1)
         {
             showSword();
         }
@@ -159,10 +165,11 @@ public class EquipManager : MonoBehaviour
 
     void equipRife1()
     {
-        if(rife1state == 1)
+        if (rife1state == 1)
         {
             ShowRife();
-        }else if(rife1state == 0)
+        }
+        else if (rife1state == 0)
         {
             HideRife();
         }
@@ -190,10 +197,11 @@ public class EquipManager : MonoBehaviour
 
     void equipShotgun()
     {
-        if(shotgun1state == 1)
+        if (shotgun1state == 1)
         {
             showShotgun();
-        } else if(shotgun1state == 0)
+        }
+        else if (shotgun1state == 0)
         {
             HideShotgun();
         }
@@ -228,3 +236,13 @@ public class EquipManager : MonoBehaviour
     }
 
 }
+
+
+
+    
+
+    
+    
+
+    
+
