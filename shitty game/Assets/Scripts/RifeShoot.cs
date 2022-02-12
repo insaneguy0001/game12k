@@ -41,13 +41,13 @@ public class RifeShoot : MonoBehaviour
 
     void Shoot()
     {
-
+        animator.SetTrigger("Shoot");
         RaycastHit hit;
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
-            animator.SetTrigger("Shoot");
+            
         }
 
         
