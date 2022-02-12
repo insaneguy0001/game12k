@@ -8,7 +8,10 @@ public class EquipManager : MonoBehaviour
     [Header("Pistol")]
 
     public GunShoot GunShootingScript;
-    public Renderer GunObject;
+    public Renderer GunObject1;
+    public Renderer GunObject1_2;
+    public Renderer GunObject1_3;
+    public Renderer GunObject1_4;
     public Renderer SwordRenderer;
     int gunState = 1;
     int swordState = 1;
@@ -21,7 +24,8 @@ public class EquipManager : MonoBehaviour
     public GameObject NightVision;
     public Sword swordScript;
     public Renderer rife1;
-    public Renderer shotgun1;
+    public Renderer shotgun1_1;
+    public Renderer shotgun1_2;
     Quaternion startRot;
     Vector3 startPos;
 
@@ -36,12 +40,16 @@ public class EquipManager : MonoBehaviour
     {
 
         GunShootingScript.enabled = false;
-        GunObject.enabled = false;
+        GunObject1.enabled = false;
+        GunObject1_2.enabled = false;
+        GunObject1_3.enabled = false;
+        GunObject1_4.enabled = false;
         SwordRenderer.enabled = false;
         transform.rotation = from.rotation;
         swordScript.enabled = false;
         rife1.enabled = false;
-        shotgun1.enabled = false;
+        shotgun1_1.enabled = false;
+        shotgun1_2.enabled = false;
     }
 
     void Update()
@@ -105,7 +113,10 @@ public class EquipManager : MonoBehaviour
         HideShotgun();
 
         GunShootingScript.enabled = true;
-        GunObject.enabled = true;
+        GunObject1.enabled = true;
+        GunObject1_2.enabled = true;
+        GunObject1_3.enabled = true;
+        GunObject1_4.enabled = true;
         gunState = 0;
 
 
@@ -117,8 +128,10 @@ public class EquipManager : MonoBehaviour
         transform.rotation = from.rotation;
 
         GunShootingScript.enabled = false;
-        GunObject.enabled = false;
-
+        GunObject1.enabled = false;
+        GunObject1_2.enabled = false;
+        GunObject1_3.enabled = false;
+        GunObject1_4.enabled = false;
         gunState = 1;
 
     }
@@ -216,13 +229,15 @@ public class EquipManager : MonoBehaviour
         hideSword();
         HideRife();
         shotgun1state = 0;
-        shotgun1.enabled = true;
+        shotgun1_1.enabled = true;
+        shotgun1_2.enabled = true;
     }
 
     void HideShotgun()
     {
         shotgun1state = 1;
-        shotgun1.enabled = false;
+        shotgun1_1.enabled = false;
+        shotgun1_2.enabled = false;
     }
 
 
