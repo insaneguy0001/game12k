@@ -904,9 +904,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 164301219}
-  - component: {fileID: 164301221}
   - component: {fileID: 164301223}
   - component: {fileID: 164301220}
+  - component: {fileID: 164301221}
   m_Layer: 7
   m_Name: GunContainer
   m_TagString: Untagged
@@ -958,11 +958,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 164301218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9232628416063b4fba86c488cbb4c88, type: 3}
+  m_Script: {fileID: 11500000, guid: ca48ea510779b6445935c7abd3fbf293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothSway: 8
-  multiplier: 2
+  smooth: 8
+  multiplier: 16
 --- !u!114 &164301223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh79562
+  m_Name: pb_Mesh216914
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8271,7 +8271,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77800
+  m_Name: pb_Mesh215152
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9169,7 +9169,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh79460
+  m_Name: pb_Mesh216812
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
