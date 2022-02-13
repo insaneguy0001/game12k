@@ -7,6 +7,8 @@ public class EquipManager : MonoBehaviour
 
     [Header("Pistol")]
 
+    public ShotgunShoot ShotgunScript;
+    public RifeShoot rifeScript;
     public GunShoot GunShootingScript;
     public Renderer GunObject1;
     public Renderer GunObject1_2;
@@ -38,8 +40,9 @@ public class EquipManager : MonoBehaviour
 
     void Start()
     {
-
+        rifeScript.enabled = false;
         GunShootingScript.enabled = false;
+        ShotgunScript.enabled = false;
         GunObject1.enabled = false;
         GunObject1_2.enabled = false;
         GunObject1_3.enabled = false;
@@ -197,6 +200,7 @@ public class EquipManager : MonoBehaviour
         HideShotgun();
         rife1state = 0;
         rife1.enabled = true;
+        rifeScript.enabled = true;
 
 
     }
@@ -205,6 +209,7 @@ public class EquipManager : MonoBehaviour
     {
         rife1.enabled = false;
         rife1state = 1;
+        rifeScript.enabled = false;
     }
 
 
@@ -231,6 +236,7 @@ public class EquipManager : MonoBehaviour
         shotgun1state = 0;
         shotgun1_1.enabled = true;
         shotgun1_2.enabled = true;
+        ShotgunScript.enabled = true;
     }
 
     void HideShotgun()
@@ -238,6 +244,7 @@ public class EquipManager : MonoBehaviour
         shotgun1state = 1;
         shotgun1_1.enabled = false;
         shotgun1_2.enabled = false;
+        ShotgunScript.enabled = false;
     }
 
 

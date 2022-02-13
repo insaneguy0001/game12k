@@ -12,6 +12,7 @@ public class Pause : MonoBehaviour
     public Movement movementScript;
     public Sword swordScript;
     public RifeShoot rifeScript;
+    public ShotgunShoot shotgunScript;
     public AudioSource FootSteps;
     public bool AreSettingsOn = false;
     Cam cam;
@@ -57,6 +58,7 @@ public class Pause : MonoBehaviour
             movementScript.paused = false;
             rifeScript.canshoot = true;
             swordScript.canattack = true;
+            shotgunScript.canShoot = true;
         }
         
 
@@ -76,7 +78,8 @@ public class Pause : MonoBehaviour
         movementScript.paused = true;
         rifeScript.canshoot = false;
         swordScript.canattack = false;
-        
+        shotgunScript.canShoot = false;
+
 
     }
 
