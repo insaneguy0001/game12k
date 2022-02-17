@@ -22,4 +22,20 @@ public class WeaponSway : MonoBehaviour {
         // rotate 
         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
     }
+
+
+
+    public void DisableSway()
+    {
+        smooth = 0f;
+        multiplier = 0f;
+    }
+
+
+    public void EnableSway()
+    {
+        smooth = 8f;
+        multiplier = 4f;
+    }
+
 }

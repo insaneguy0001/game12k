@@ -11,7 +11,10 @@ public class Settings : MonoBehaviour
     public Transform Right;
     public Transform Left;
     public Transform Center;
+    public Transform Guns;
+    public Transform RotRef;
     public GameObject gunContainer;
+    
     Resolution[] resolutions;
 
     void Start()
@@ -64,6 +67,10 @@ public class Settings : MonoBehaviour
     {
         Screen.fullScreen = fullscreen;
     }
+
+    
+    
+
 
     public void gunPosition(int WeaponPosIndex)
     {
