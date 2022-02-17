@@ -7019,7 +7019,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 1732179547}
   m_ItemImage: {fileID: 0}
-  m_Value: 7
+  m_Value: 0
   m_Options:
     m_Options:
     - m_Text: 800 x 600
