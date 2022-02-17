@@ -14,7 +14,10 @@ public class Settings : MonoBehaviour
     public Transform Guns;
     public Transform RotRef;
     public GameObject gunContainer;
-    
+    public Camera mainCam;
+    public Camera WeaponCam;
+    public GameObject rawImage;
+    public RenderTexture renderTexture;
     Resolution[] resolutions;
 
     void Start()
@@ -88,6 +91,23 @@ public class Settings : MonoBehaviour
         {
             gunContainer.transform.position = Center.position;
             Debug.Log("GunContainer position changed");
+        }
+    }
+
+
+    public void Pixelated(bool pixelated)
+    {
+        if (pixelated)
+        {
+            mainCam.targetTexture = renderTexture;
+            WeaponCam.targetTexture = renderTexture;
+            rawImage.SetActive(true);
+        } 
+        else if (!pixelated)
+        {
+            mainCam.targetTexture = null;
+            WeaponCam.targetTexture = null;
+            rawImage.SetActive(false);
         }
     }
 }
