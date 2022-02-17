@@ -254,7 +254,7 @@ public class EquipManager : MonoBehaviour
 
     void rotate()
     {
-        transform.rotation = Quaternion.Lerp(from.rotation, to.rotation, Time.time * speed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, to.rotation, Time.time * speed);
     }
 
 }

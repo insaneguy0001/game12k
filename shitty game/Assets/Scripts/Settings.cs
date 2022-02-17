@@ -8,7 +8,10 @@ public class Settings : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public Dropdown resDropdown;
-
+    public Transform Right;
+    public Transform Left;
+    public Transform Center;
+    public GameObject gunContainer;
     Resolution[] resolutions;
 
     void Start()
@@ -60,5 +63,24 @@ public class Settings : MonoBehaviour
     public void SetFullscreen(bool fullscreen)
     {
         Screen.fullScreen = fullscreen;
+    }
+
+    public void gunPosition(int WeaponPosIndex)
+    {
+        if(WeaponPosIndex == 0)
+        {
+            gunContainer.transform.position = Right.position;
+            Debug.Log("GunContainer position changed");
+        }
+        else if(WeaponPosIndex == 1)
+        {
+            gunContainer.transform.position = Left.position;
+            Debug.Log("GunContainer position changed");
+        }
+        else if (WeaponPosIndex == 2)
+        {
+            gunContainer.transform.position = Center.position;
+            Debug.Log("GunContainer position changed");
+        }
     }
 }
