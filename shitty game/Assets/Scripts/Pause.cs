@@ -8,6 +8,7 @@ public class Pause : MonoBehaviour
     public static bool isPauseOpen = false;
     public GameObject PauseUI;
     public GameObject player;
+    public GameObject QuitMenu;
     public GunShoot ShootingScript;
     public Movement movementScript;
     public Sword swordScript;
@@ -15,6 +16,7 @@ public class Pause : MonoBehaviour
     public ShotgunShoot shotgunScript;
     public AudioSource FootSteps;
     public bool AreSettingsOn = false;
+    public bool IsQuiting = false;
     Cam cam;
 
 
@@ -45,7 +47,7 @@ public class Pause : MonoBehaviour
     
     public void resume()
     {
-        if (!AreSettingsOn)
+        if (!AreSettingsOn && !IsQuiting)
         {
             PauseUI.gameObject.SetActive(false);
             Time.timeScale = 1f;
@@ -85,7 +87,8 @@ public class Pause : MonoBehaviour
 
     public void quit()
     {
-        Application.Quit();
+        QuitMenu.SetActive(true);
+        IsQuiting = true;
     }
 
 

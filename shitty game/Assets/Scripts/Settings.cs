@@ -24,7 +24,7 @@ public class Settings : MonoBehaviour
     {
         resolutions = Screen.resolutions;
         resDropdown.ClearOptions();
-
+        
         List<string> options = new List<string>();
 
         int currentResolutionIndex = 0;
@@ -110,4 +110,18 @@ public class Settings : MonoBehaviour
             rawImage.SetActive(false);
         }
     }
+
+
+    public void vSync(bool vSyncOn)
+    {
+        if (vSyncOn)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
+    }
+
 }
