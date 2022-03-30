@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] Transform Orientation;
     [SerializeField] LayerMask groundMask;
+    [SerializeField] Transform groundcheck;
     public float speed = 3f;
     Vector3 direction;
     float SpeedMultiplier = 15f;
@@ -98,7 +99,7 @@ public class Movement : MonoBehaviour
 
 
 
-        isPlayerGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), groundDistance, groundMask);
+        isPlayerGrounded = Physics.CheckSphere(groundcheck.position, groundDistance, groundMask);
         
         if (!Sprint)
         {
@@ -232,6 +233,7 @@ public class Movement : MonoBehaviour
     }
     void jump()
     {
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(transform.up * ForceJump, ForceMode.Impulse);
         
     }

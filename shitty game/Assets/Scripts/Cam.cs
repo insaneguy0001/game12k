@@ -9,6 +9,7 @@ public class Cam : MonoBehaviour
     [SerializeField] Transform Orientation;
     Cam Instance;
     [SerializeField] Transform cam;
+    [SerializeField] WallRunning wallrun;
     float x;
     float y;
     float multiplayer = 0.01f;
@@ -26,7 +27,7 @@ public class Cam : MonoBehaviour
         if (!paused)
         {
             InputSystem();
-            cam.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
+            cam.transform.rotation = Quaternion.Euler(xRot, yRot, wallrun.tilt);
             Orientation.transform.rotation = Quaternion.Euler(0, yRot, 0);
         }
         
