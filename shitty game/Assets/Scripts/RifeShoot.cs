@@ -25,13 +25,10 @@ public class RifeShoot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time >= TimeToNextFire)
+        if (Input.GetMouseButton(0) && Time.time >= TimeToNextFire && canshoot)
         {
-            if (canshoot)
-            {
-                TimeToNextFire = Time.time + 1f / FireRate;
-                Shoot();
-            }
+            TimeToNextFire = Time.time + 1f / FireRate;
+            Shoot();
 
         }
     }

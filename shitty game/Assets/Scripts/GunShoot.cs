@@ -22,14 +22,11 @@ public class GunShoot : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButton(0) && Time.time >= TimeToNextFire)
+        if (Input.GetMouseButton(0) && Time.time >= TimeToNextFire && canShoot)
         {
-            if (canShoot)
-            {
-                TimeToNextFire = Time.time + 1f / FireRate;
-                Shoot();
-            }
-            
+            TimeToNextFire = Time.time + 1f / FireRate;
+            Shoot();
+
         }
     }
     void Shoot()

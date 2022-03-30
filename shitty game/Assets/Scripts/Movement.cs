@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     public float speed = 3f;
     Vector3 direction;
-    float SpeedMultiplier = 10f;
+    float SpeedMultiplier = 15f;
     float AirSpeedMultiplier = 3f;
     bool isPlayerGrounded;
     Rigidbody rb;
@@ -90,8 +90,11 @@ public class Movement : MonoBehaviour
             }
         }
 
-       
 
+        if (Input.GetKeyDown("x"))
+        {
+            Screen.SetResolution(1280, 800, Screen.fullScreen);
+        }
 
 
 
