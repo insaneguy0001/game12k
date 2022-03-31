@@ -27,7 +27,7 @@ public class WallRunning : MonoBehaviour
 
     private bool wallLeft = false;
     private bool wallRight = false;
-
+    bool isWallrunning = false;
     RaycastHit leftWallHit;
     RaycastHit rightWallHit;
 
@@ -49,7 +49,7 @@ public class WallRunning : MonoBehaviour
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallDistance);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         CheckWall();
 
@@ -76,21 +76,9 @@ public class WallRunning : MonoBehaviour
         }
     }
 
-    void StartWallRun()
+    void Update()
     {
-        rb.useGravity = false;
-
-        rb.AddForce(Vector3.down * wallRunGravity, ForceMode.Force);
-
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, wallRunfov, wallRunfovTime * Time.deltaTime);
-
-        if (wallLeft)
-            tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
-        else if (wallRight)
-            tilt = Mathf.Lerp(tilt, camTilt, camTiltTime * Time.deltaTime);
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isWallrunning)
         {
             if (wallLeft)
             {
@@ -107,11 +95,29 @@ public class WallRunning : MonoBehaviour
         }
     }
 
+    void StartWallRun()
+    {
+        rb.useGravity = false;
+        isWallrunning = true;
+        rb.AddForce(Vector3.down * wallRunGravity, ForceMode.Force);
+
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, wallRunfov, wallRunfovTime * Time.deltaTime);
+
+        if (wallLeft)
+            tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
+        else if (wallRight)
+            tilt = Mathf.Lerp(tilt, camTilt, camTiltTime * Time.deltaTime);
+
+
+        
+    }
+
     void StopWallRun()
     {
         rb.useGravity = true;
 
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, wallRunfovTime * Time.deltaTime);
         tilt = Mathf.Lerp(tilt, 0, camTiltTime * Time.deltaTime);
+        isWallrunning = false;
     }
 }

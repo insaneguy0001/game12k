@@ -21,6 +21,7 @@ public class Cam : MonoBehaviour
     {
         Instance = this;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     private void Update()
     {
